@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Woof</RootNamespace>
+    <Authors>Adam Łyskawa, Kamil Marzec</Authors>
+    <Company>CodeDog Ltd.</Company>
+    <Description>Sockets communication made easy!
+The best X.690 protocol implementation out there :)</Description>
+    <Copyright>(c)2018 by CodeDog Ltd.</Copyright>
+    <PackageLicenseUrl>https://en.wikipedia.org/wiki/MIT_License</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/HTD/Woof.Sockets</PackageProjectUrl>
+    <PackageTags>code core codedog dotnet system sockets X690</PackageTags>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="packages\**" />
+    <Compile Remove="Tests\**" />
+    <EmbeddedResource Remove="packages\**" />
+    <EmbeddedResource Remove="Tests\**" />
+    <None Remove="packages\**" />
+    <None Remove="Tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Woof.Core" Version="1.0.2" />
+  </ItemGroup>
+
+</Project>

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using Woof.NetEx;
-using Woof.TextEx;
 using Xunit;
 
 /// <summary>

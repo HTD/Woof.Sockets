@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Woof</RootNamespace>
-    <Authors>Adam Łyskawa, Kamil Marzec</Authors>
+    <Authors>Adam Łyskawa</Authors>
     <Company>CodeDog Ltd.</Company>
     <Description>Sockets communication made easy!
 The best X.690 protocol implementation out there :)</Description>
@@ -11,8 +11,13 @@ The best X.690 protocol implementation out there :)</Description>
     <PackageLicenseUrl>https://en.wikipedia.org/wiki/MIT_License</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/HTD/Woof.Sockets</PackageProjectUrl>
     <PackageTags>code core codedog dotnet system sockets X690</PackageTags>
-    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReleaseNotes>XML documentation completed.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\Woof.Sockets.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

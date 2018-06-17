@@ -5,6 +5,9 @@
     /// </summary>
     public static partial class X690 {
 
+        /// <summary>
+        /// A node representing an ordered sequence of nodes.
+        /// </summary>
         public class Sequence : Node {
 
             /// <summary>

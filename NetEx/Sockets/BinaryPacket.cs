@@ -35,7 +35,7 @@
         }
 
         /// <summary>
-        /// Implicitly converts <see cref="BinaryPacket"/> to <see cref="byte[]"/>.
+        /// Implicitly converts <see cref="BinaryPacket"/> to <see cref="byte"/> array.
         /// </summary>
         /// <param name="m"></param>
         public static implicit operator byte[](BinaryPacket m) => m.Bytes;

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Woof.NetEx.Sockets {
 
@@ -12,6 +13,9 @@ namespace Woof.NetEx.Sockets {
         /// </summary>
         public IPEndPoint EndPoint { get; }
 
+        /// <summary>
+        /// Gets the data used for authentication, remote host name or <see cref="X509Certificate"/>.
+        /// </summary>
         public object AuthenticationData { get; }
 
         /// <summary>

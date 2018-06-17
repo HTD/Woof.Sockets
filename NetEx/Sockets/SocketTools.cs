@@ -58,7 +58,6 @@ namespace Woof.NetEx.Sockets {
         /// Waits until socket is in selected state or cancelled.
         /// </summary>
         /// <param name="instance">Socket instance.</param>
-        /// <param name="selectMode">One of <see cref="SelectMode"/> options.</param>
         /// <param name="token">Cancellation token.</param>
         /// <returns>True if the socket entered the selected state.</returns>
         public static async Task<bool> WaitAvailableAsync(this Socket instance, CancellationToken token) => await Task.Run(() => {

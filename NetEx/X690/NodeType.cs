@@ -21,6 +21,7 @@ namespace Woof.NetEx {
             /// </summary>
             /// <param name="tagNumber">X.690 tag number.</param>
             protected NodeType(int tagNumber) => TagNumber = tagNumber;
+
             /// <summary>
             /// Creates ASN.1 node type from tag X.690 tag class and number.
             /// </summary>
@@ -60,20 +61,49 @@ namespace Woof.NetEx {
 
             #region Equality
 
+            /// <summary>
+            /// Gets the hash code for the node type. It's calculated from <see cref="TagNumber"/>.
+            /// </summary>
+            /// <returns>Calculated hash code.</returns>
             public override int GetHashCode() => TagNumber.GetHashCode();
 
+            /// <summary>
+            /// Tests if two node types are equal.
+            /// </summary>
+            /// <param name="obj">An object to test for equality.</param>
+            /// <returns>True if types are equal.</returns>
             public override bool Equals(object obj) => (obj is NodeType t) && t.TagNumber == TagNumber;
 
+            /// <summary>
+            /// Standard equality test for node types.
+            /// </summary>
+            /// <param name="a">Type A.</param>
+            /// <param name="b">Type B.</param>
+            /// <returns>True if equal.</returns>
             public static bool operator ==(NodeType a, NodeType b) => a.TagNumber == b.TagNumber;
 
+            /// <summary>
+            /// Standard inequality test for node types.
+            /// </summary>
+            /// <param name="a">Type A.</param>
+            /// <param name="b">Type B.</param>
+            /// <returns>True if not equal.</returns>
             public static bool operator !=(NodeType a, NodeType b) => a.TagNumber != b.TagNumber;
 
             #endregion
 
             #region Implicit conversions
 
+            /// <summary>
+            /// Implicit conversion to <see cref="int"/>, returns <see cref="TagNumber"/>.
+            /// </summary>
+            /// <param name="type">Type.</param>
             public static implicit operator int(NodeType type) => type.TagNumber;
 
+            /// <summary>
+            /// Implicit conversion to string.
+            /// </summary>
+            /// <param name="type">Type.</param>
             public static implicit operator string(NodeType type) => type.ToString();
 
             #endregion
@@ -96,6 +126,7 @@ namespace Woof.NetEx {
         public sealed class UniversalType : NodeType {
 
             #region X.690 universal node types
+            #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
             public const int EndOfContent = 0x00;
             public const int Boolean = 0x01;
             public const int Integer = 0x02;
@@ -127,6 +158,7 @@ namespace Woof.NetEx {
             public const int UniversalString = 0x1c;
             public const int CharacterString = 0x1d;
             public const int BmpString = 0x1e;
+            #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
             #endregion
 
             /// <summary>

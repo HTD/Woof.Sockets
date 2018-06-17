@@ -5,6 +5,9 @@
     /// </summary>
     public static partial class X690 {
 
+        /// <summary>
+        /// A node representing an unordered set of nodes, like the node order present is not semantically important.
+        /// </summary>
         public class Set : Node {
 
             /// <summary>

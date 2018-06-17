@@ -9,14 +9,14 @@ namespace Woof.NetEx.Sockets {
     public interface ITransceiver<T> {
 
         /// <summary>
-        /// Receives message of type <see cref="T"/> from the stream.
+        /// Receives message from the stream.
         /// </summary>
         /// <param name="stream">Readable network stream.</param>
         /// <returns>Pair of <see cref="ReceiveStatus"/> and received packet.</returns>
         KeyValuePair<ReceiveStatus, T> Receive(NetworkStreamEx stream);
 
         /// <summary>
-        /// Sends a message of type <see cref="T"/> to the stream.
+        /// Sends a message to the stream.
         /// </summary>
         /// <param name="stream">Writeable stream.</param>
         /// <param name="packet">Packet to send.</param>

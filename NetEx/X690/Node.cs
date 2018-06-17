@@ -198,7 +198,7 @@ namespace Woof.NetEx {
             public NodeCollection Nodes { get; }
 
             /// <summary>
-            /// Gets the universal node type as a member of <see cref="UniversalNodeType1"/> enumeration.
+            /// Gets the universal node type.
             /// </summary>
             public virtual NodeType NodeType => Header.NodeType;
 
@@ -715,9 +715,18 @@ namespace Woof.NetEx {
             #endregion
 
             #region Equality
-
+            
+            /// <summary>
+            /// Calculates the node's hash code from <see cref="Header"/>, <see cref="Payload"/> and <see cref="Node"/> propetries.
+            /// </summary>
+            /// <returns>Calculated hashcode.</returns>
             public override int GetHashCode() => 31 * (31 * Header.GetHashCode() + Payload.GetHashCode()) + Nodes.GetHashCode();
 
+            /// <summary>
+            /// Checks whether the 2 nodes are equivalent.
+            /// </summary>
+            /// <param name="obj">Object to test for equality.</param>
+            /// <returns>True if nodes are equivalent.</returns>
             public override bool Equals(object obj) => (obj is Node n) &&
                 n.Header == Header &&
                 (n.Payload == null && Payload == null || (n.Payload != null && Payload != null && n.Payload.SequenceEqual(Payload))) &&

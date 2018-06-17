@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 
 namespace Woof.NetEx {
@@ -149,7 +150,8 @@ namespace Woof.NetEx {
             /// <summary>
             /// Reads ASN.1 header.
             /// </summary>
-            /// <param name="stream">Input stream.</param>
+            /// <param name="buffer">Input buffer.</param>
+            /// <param name="offset">The offset in the buffer the header begins.</param>
             /// <returns>Message header.</returns>
             /// <exception cref="IndexOutOfRangeException">Thrown when the buffer is incomplete.</exception>
             /// <exception cref="InvalidDataException">Thrown when the length octets indicated unrealistic data length.</exception>
@@ -263,12 +265,27 @@ namespace Woof.NetEx {
 
             #region Equality
 
+            /// <summary>
+            /// Calculates a hash code from <see cref="Identifier"/>, see <see cref="Length"/>, <see cref="NodeType"/> and <see cref="PayloadLength"/> properties.
+            /// </summary>
+            /// <returns></returns>
             public override int GetHashCode()
                 => 31 * (31 * (31 * Identifier.GetHashCode() + Length.GetHashCode()) + NodeType.GetHashCode()) + PayloadLength.GetHashCode();
 
+            /// <summary>
+            /// Test if headers are equal.
+            /// </summary>
+            /// <param name="obj">Object to test for equality.</param>
+            /// <returns></returns>
             public override bool Equals(object obj) =>
                 (obj is Header h) && h.Identifier == Identifier && h.Length == Length && h.NodeType == NodeType && h.PayloadLength == PayloadLength;
 
+            /// <summary>
+            /// Standard equality test for headers.
+            /// </summary>
+            /// <param name="a">Header A.</param>
+            /// <param name="b">Header B.</param>
+            /// <returns>True if headers are equivalent.</returns>
             public static bool operator ==(Header a, Header b) =>
                 ((object)a == null && (object)b == null) ||
                 (
@@ -276,6 +293,12 @@ namespace Woof.NetEx {
                     a.Identifier == b.Identifier && a.Length == b.Length && a.NodeType == b.NodeType && a.PayloadLength == b.PayloadLength
                 );
 
+            /// <summary>
+            /// Standard inequality test for headers.
+            /// </summary>
+            /// <param name="a">Header A.</param>
+            /// <param name="b">Header B.</param>
+            /// <returns>True if headers are not equivalent.</returns>
             public static bool operator !=(Header a, Header b) => !(a == b);
 
             #endregion
